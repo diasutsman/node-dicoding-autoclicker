@@ -17,19 +17,15 @@ const puppeteer = require("puppeteer");
 	await page.waitForNavigation();
 
 	// Navigate to the target page and perform the desired actions
-	await page.goto(
-		"https://www.dicoding.com/academies/423/tutorials/25820?from=25815"
-	);
+	const dicodingUrl = "https://www.dicoding.com/academies/423/tutorials/25845";
+	await page.goto(dicodingUrl);
 
 	// Replace the following steps with your sequence of actions
 	const buttonSelector = "a.classroom-bottom-nav__next"; // Replace with the selector of the button you want to click
 	const numIterations = 1000; // Replace with the number of times you want to repeat the action
 
 	for (let i = 0; i < numIterations; i++) {
-		await Promise.all([
-            page.click(buttonSelector), 
-            page.waitForNavigation()],
-        );
+		await Promise.all([page.click(buttonSelector), page.waitForNavigation()]);
 	}
 
 	// Close the browser when you're done
