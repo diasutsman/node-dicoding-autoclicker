@@ -35,6 +35,7 @@ async function gotoFirstUrl(page) {
 (async () => {
 	const browser = await puppeteer.launch({
 		headless: false, // Set to true for headless mode
+		defaultViewport: null,
 	});
 	const page = await browser.newPage();
 
